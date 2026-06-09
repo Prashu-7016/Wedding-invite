@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Swathi & Mohan Kumar Wedding</title>
     
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Load React -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Load Babel to compile JSX in the browser -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
@@ -62,7 +59,7 @@
         const App = () => {
             const [inviteState, setInviteState] = useState('sealed'); 
             const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-            const [startLocation, setStartLocation] = useState(''); // NEW STATE FOR LOCATION
+            const [startLocation, setStartLocation] = useState(''); 
 
             // Wedding Date
             const weddingDate = new Date('June 24, 2026 04:40:00').getTime();
@@ -104,15 +101,13 @@
                 }, 1000);
             };
 
-            // NEW FUNCTION: Handle Google Maps Routing
+            // Handle Google Maps Routing
             const handleGetDirections = () => {
+                const destination = encodeURIComponent("Sri Hari Convention Hall, Chikka Tirupati");
                 if (startLocation.trim() === '') {
-                    // If they leave it blank, just show the venue on the map
-                    window.open("https://maps.google.com/?q=Sri+Hari+Convention+Hall,+Chikka+Tirupati", "_blank");
+                    window.open(`https://www.google.com/maps/search/?api=1&query=${destination}`, "_blank");
                 } else {
-                    // If they type a location, open Google Maps with the route from their location to the venue
                     const origin = encodeURIComponent(startLocation);
-                    const destination = encodeURIComponent("Sri Hari Convention Hall, Chikka Tirupati");
                     window.open(`https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}`, "_blank");
                 }
             };
@@ -188,7 +183,7 @@
 
                         <div className="relative z-20 max-w-xl w-full mx-auto shadow-[0_10px_30px_rgba(0,0,0,0.8)] sm:shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-xl overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] border-[#d4af37] bg-[#2d0a11] mt-12 sm:mt-10 md:mt-0 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
                             <img 
-                                src="https://i.postimg.cc/2yf0kQH7/1000102949.png" 
+                                src="https://i.postimg.cc/L5gr9gYx/1781020647058.png" 
                                 onError={(e) => {
                                     e.target.onerror = null; 
                                     e.target.src = "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop"; 
@@ -274,7 +269,7 @@
                                     Karnataka
                                 </p>
                                 
-                                {/* New Interactive Route Input */}
+                                {/* Interactive Route Input */}
                                 <div className="mt-2 flex flex-col sm:flex-row gap-3 justify-center items-center w-full">
                                     <input 
                                         type="text" 
